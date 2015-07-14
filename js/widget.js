@@ -1,5 +1,3 @@
-
-/*
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
 	if(xhr.readyState === 4) {
@@ -20,24 +18,6 @@ xhr.onreadystatechange = function () {
 };
 xhr.open('GET', 'data/employees.json');
 xhr.send();
-*/
-
-//jquery version
-$(document).ready(function () {
-	var url="../data/employees.json";
-	$.getJSON(url, function(response) {
-		var statusHTML = '<ul class="bulleted">';
-		$.each(response, function(index, employee) {
-			if(employee.inoffice === true) {
-				statusHTML +='<li class="in">';
-			} else {
-				statusHTML +='<li class="out">';
-			}
-			statusHTML += employee.name + '</li>';
-		});
-		$('#employeeList').html(statusHTML);
-	});
-});
 
 var roomRequest = new XMLHttpRequest();
 roomRequest.onreadystatechange = function () {
